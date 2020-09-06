@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-info
+  namespace: anz-name-space
+  labels:
+    app: book-info
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: book-info
+  template:
+    metadata:
+      labels:
+        app: book-info
+    spec:
+      containers:
+        - name: book-info
+          image: anil16/book-info
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8050
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: "kubernetes"

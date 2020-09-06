@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	  http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet author="anil" id="1">
+        <createTable catalogName="anz"
+                     remarks="table for books"
+                     schemaName="public"
+                     tableName="book">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="anil" id="2">
+        <sql>insert into book(name) values('book1') </sql>
+        <sql>insert into book(name) values('book2') </sql>
+        <sql>insert into book(name) values('book3') </sql>
+        <sql>insert into book(name) values('book4') </sql>
+        <sql>insert into book(name) values('book5') </sql>
+    </changeSet>
+
+</databaseChangeLog>
+
